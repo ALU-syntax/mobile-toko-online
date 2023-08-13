@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:toko_online/screens/product_detail.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
@@ -37,13 +38,19 @@ class HomePage extends StatelessWidget {
                       elevation: 5,
                       child: Row(
                         children: [
-                          Container(
-                            padding: EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15.0)),
-                            height: 120,
-                            width: 120,
-                            child: Image.network(snapshot.data['data'][index]['image_url'])),
+                          GestureDetector(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(
+                                builder: (context)=> ProductDetail(product: snapshot.data['data'][index])));
+                            },
+                            child: Container(
+                              padding: EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15.0)),
+                              height: 120,
+                              width: 120,
+                              child: Image.network(snapshot.data['data'][index]['image_url'])),
+                          ),
                           Expanded(
                             child: Container(
                               padding: EdgeInsets.all(10),
