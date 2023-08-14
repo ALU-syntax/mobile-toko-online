@@ -3,7 +3,7 @@ import "package:flutter/material.dart";
 class ProductDetail extends StatelessWidget {
   final Map product;
 
-  ProductDetail({required this.product});
+  const ProductDetail({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class ProductDetail extends StatelessWidget {
             alignment: Alignment.center,
             child: Image.network(product['image_url']),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Padding(
@@ -24,8 +24,8 @@ class ProductDetail extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(product['price'], 
-                style: TextStyle(fontSize: 22)),
-                Row(
+                style: const TextStyle(fontSize: 22)),
+                const Row(
                   children: [
                     Icon(Icons.edit),
                     Icon(Icons.delete)
